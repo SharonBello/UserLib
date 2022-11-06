@@ -1,0 +1,10 @@
+<form class="edit-form" (ngSubmit)="onSubmit()">
+
+    <div class="form-control">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" [(ngModel)]="email" placeholder="User Email" />
+    </div>
+
+    <input type="submit" value="Save User" class="btn btn-block" />
+
+</form>

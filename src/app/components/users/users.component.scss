@@ -1,0 +1,11 @@
+.edit-user {
+    margin-block-start: 15%;
+}
+
+.user-list-container {
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    grid-gap: 12px;
+    display: grid;
+    min-height: 100%;
+    max-width: 100%;
+}

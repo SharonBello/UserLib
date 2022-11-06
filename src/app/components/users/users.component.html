@@ -1,1 +1,7 @@
-<app-user-item *ngFor="let user of users" [user]="user"></app-user-item>
+<section class="edit-user">
+    <app-edit-user (onEditUser)="editUser($event)"></app-edit-user>
+    <main class="user-list-container container">
+        <app-user-item *ngFor="let user of users" [user]="user" (onEditUser)="editUser">
+        </app-user-item>
+    </main>
+</section>

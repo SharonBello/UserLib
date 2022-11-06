@@ -3,6 +3,11 @@
     margin: 5px;
     padding: 10px 20px;
     cursor: pointer;
+    display: flex;
+}
+
+fa-icon {
+    margin-left: auto;
 }
 
 .user.reminder {

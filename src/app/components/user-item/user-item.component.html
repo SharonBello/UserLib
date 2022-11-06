@@ -1,3 +1,8 @@
 <div class="user">
-    <h3>{{user.email}}  <fa-icon [icon]="faTimes"></fa-icon></h3>
+    <div>
+        <h4>{{user.name.first}} {{user.name.last}}</h4>
+        <h5>{{user.email}}, {{user.location.street.number}} {{user.location.street.name}}, {{user.location.city}}, {{user.location.country}}, {{user.location.postcode}} </h5>
+        <fa-icon [icon]="faEdit" (click)="onEdit(user)"></fa-icon>
+    </div>
 </div>
+<div *ngIf="showEditUser"><app-edit-user [user]="user" (onEditUser)="editUser($event)"></app-edit-user></div>

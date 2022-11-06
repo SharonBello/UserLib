@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SvgIconComponent } from './global/app-svg-icon/app-svg-icon.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -31,11 +30,11 @@ import { NewUserComponent } from './components/new-user/new-user.component';
 import { WelcomePageComponent } from '../app/components/new-user/pages/welcome-page/welcome-page.component';
 import { UserInfoInputComponent } from '../app/components/new-user/pages/user-info-input/user-info-input.component';
 import { ConfirmNewUserComponent } from '../app/components/new-user/pages/confirm-new-user/confirm-new-user.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SvgIconComponent,
     HeaderComponent,
     ButtonComponent,
     UsersComponent,
@@ -44,6 +43,7 @@ import { ConfirmNewUserComponent } from '../app/components/new-user/pages/confir
     WelcomePageComponent,
     UserInfoInputComponent,
     ConfirmNewUserComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,

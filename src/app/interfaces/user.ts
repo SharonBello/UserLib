@@ -1,3 +1,5 @@
+import { TitleOptions } from "../global/enums";
+
 export interface User {
   gender: string;
   name: Name;
@@ -13,13 +15,13 @@ export interface User {
   nat: string;
 }
 
-interface Name {
-  title: string;
+export interface Name {
+  title?: TitleOptions | string;
   first: string;
   last: string;
 }
 
-interface Street {
+export interface Street {
   number: number;
   name: string;
 }
@@ -34,7 +36,7 @@ interface Timezone {
   description: string;
 }
 
-interface Location {
+export interface Location {
   street: Street;
   city: string;
   state: string;
@@ -69,7 +71,7 @@ interface Id {
   value: string;
 }
 
-interface Picture {
+export interface Picture {
   large: string;
   medium: string;
   thumbnail: string;

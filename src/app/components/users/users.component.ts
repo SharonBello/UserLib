@@ -19,4 +19,9 @@ export class UsersComponent implements OnInit {
       this.users = users.results;
     });
   }
+
+  editUser(user: User): void {
+    console.log(user);
+  }
+
 }
