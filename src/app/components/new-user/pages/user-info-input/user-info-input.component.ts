@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TitleOptions } from 'src/app/global/enums';
@@ -16,10 +16,11 @@ export class UserInfoInputComponent implements OnInit {
   // @ViewChild('Location') Location!: NgModel;
   // @ViewChild('Picture') Picture!: NgModel;
 
+  @Input() user!: User;
+  @Output() onEditUser: EventEmitter<User> = new EventEmitter();
   
-  submitted: boolean = false;
   
-  
+  submitted: boolean = false; 
 
   constructor(private router: Router, private NewUserService: NewUserService) {}
 

@@ -4,7 +4,7 @@ export interface User {
   gender: string;
   name: Name;
   location: Location;
-  email: string;
+  email?: string;
   login: Login;
   dob: Dob;
   registered: Registered;
@@ -16,6 +16,7 @@ export interface User {
 }
 
 export interface Name {
+  firstName: string;
   title?: TitleOptions | string;
   first: string;
   last: string;

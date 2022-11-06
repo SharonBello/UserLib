@@ -1,0 +1,17 @@
+@import '../../../../global-scss/variables.scss';
+
+.next-btn {
+    justify-content: space-between;
+    gap: 15px;
+    cursor: pointer;
+    border: 0;
+    padding: 0.5em 1.5em;
+    background-color: $accent1;
+    color: $accent4;
+    border-radius: 0.3vmax;
+    font-size: calc(0.6vw + 0.6vh + 0.6vmin);
+
+    &:disabled {
+        background-color: #a1bfd2;
+    }
+}

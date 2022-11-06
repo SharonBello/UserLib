@@ -54,14 +54,39 @@
         }
 
     }
+
     & .edit-icon {
         height: 15%;
         cursor: pointer;
-    
+
         &.fa-edit {
             font-size: 1.5rem;
             margin-bottom: 0;
             cursor: pointer;
+        }
+    }
+}
+
+:host ::ng-deep {
+
+    & .delete-toast {
+        // width: 25vw;
+        min-height: 25%;
+        position: absolute;
+        bottom: 0;
+        background-color: $accent3;
+        color: $accent2;
+        border-radius: 0.3vmax;
+
+        & .p-toast-message-custom {
+            background: $accent2;
+            border: solid #8A427A;
+            border-width: 0 0 0 6px;
+            color: #2c1e30;
+
+            .p-toast-icon-close {
+                color: #2c1e30;
+            }
         }
     }
 }

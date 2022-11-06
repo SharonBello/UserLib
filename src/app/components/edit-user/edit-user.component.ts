@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../interfaces/user';
 import { Router } from '@angular/router';
-import { MenuItem, MessageService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-edit-user',
@@ -9,11 +9,10 @@ import { MenuItem, MessageService } from 'primeng/api';
   styleUrls: ['./edit-user.component.scss'],
 })
 export class EditUserComponent implements OnInit {
-  items!: MenuItem[];
 
   @Input() user!: User;
   @Output() onEditUser: EventEmitter<User> = new EventEmitter();
-  email: string = '';
+  email?: string = '';
   firstName: string = '';
   lastName: string = '';
   streetName: string = '';

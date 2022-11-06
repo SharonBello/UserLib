@@ -1,1 +1,28 @@
-<p>welcome-page works!</p>
+<form appInfoPage="ngForm" class="edit-form" (ngSubmit)="onNextPage()">
+    <div class="field email">
+        <label for="email">Email</label>
+        <input type="email" id="email" required appEmailValidator/>
+    </div>
+  
+    <div class="field first-name">
+        <label for="first">First Name</label>
+        <input type="text" id="first" pInputText require #first="ngModel" ngModel="newUser.name.first"
+        />
+    </div>
+
+    <div class="field last-name">
+        <label for="last">Last Name</label>
+        <input type="text" id="last" pInputText require #last="ngModel" ngModel="newUser.name.last"
+        />
+    </div>
+
+    <div class="field title">
+        <label for="title">Title</label>
+        <input type="text" id="title" pInputText require #title="ngModel" ngModel="newUser.title"
+        />
+    </div>
+
+    <button type="submit" (click)="onNextPage()" class="next-btn" label="Next">Next
+    <!-- <button type="submit" (click)="onNextPage()" class="next-btn" disabled="!appInfoPage.form.valid" label="Next">Next -->
+    </button>
+</form>

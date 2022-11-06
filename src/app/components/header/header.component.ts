@@ -17,8 +17,8 @@ export class HeaderComponent implements OnInit {
 
   openAddUserDialog(): void {
     const dialogRef = this.dialog.open(NewUserComponent, {
-      maxWidth: '80%',
-      maxHeight: '50%',
+      minWidth: '80vw',
+      minHeight: '50vh',
     });
     dialogRef.afterClosed().subscribe((result) => {
       this.router.navigate(['/']);

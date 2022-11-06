@@ -19,21 +19,21 @@ export class NewUserComponent implements OnInit {
   ngOnInit(): void {
     this.router.navigate(['/new-user/welcome-page']);
     this.items = [{
-      label: 'Step-one',
+      label: 'Basic Information',
       command: (event: any) => {
         this.activeIndex = 0;
       },
       routerLink: '/new-user/welcome-page'
     },
     {
-      label: 'Step-two',
+      label: 'Location',
       command: (event: any) => {
         this.activeIndex = 1;
       },
       routerLink: '/new-user/user-info-input'
     },
     {
-      label: 'Step-three',
+      label: 'Upload Picture',
       command: (event: any) => {
         this.activeIndex = 2;
       },
