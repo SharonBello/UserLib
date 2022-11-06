@@ -1,0 +1,50 @@
+:host ::ng-deep {
+
+    .p-steps {
+        padding-inline-start: 20px;
+        padding-inline-end: 20px;
+        padding-top: 20px;
+    }
+        .p-steps .p-steps-item .p-menuitem-link .p-steps-number {
+            min-width: 2em;
+            min-height: 2em;
+            aspect-ratio: 1 / 1 !important;
+
+
+            @media (min-width: 450px) and (max-width: 600px) {
+                min-width: 2.3em;
+                min-height: 2.3em;
+                font-size: 1.2em;
+            }
+
+            @media (min-width: 601px) and (max-width: 749px) {
+                min-width: 2.5em;
+                min-height: 2.5em;
+                font-size: 1.2em;
+            }
+
+            @media (min-width: 650px) and (max-width: 714px) {
+                min-width: 2.8em;
+                min-height: 2.8em;
+                font-size: 1.2em;
+            }
+
+            @media (min-width: 715px) and (max-width: 1100px) {
+                min-width: 3em;
+                min-height: 3em;
+                font-size: 1.4em;
+                min-width: 3.5em;
+                min-height: 3.5em;
+            }
+
+            @media (min-width: 1101px) {
+                min-width: 4em;
+                min-height: 4em;
+                font-size: 1.6em;
+            }
+        }
+    }
+
+*:focus {
+    outline: none !important;
+}
