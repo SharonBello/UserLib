@@ -1,8 +1,5 @@
-.edit-user {
-    margin-block-start: 15%;
-}
-
 .user-list-container {
+    margin-block-start: 12%;
     grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
     grid-gap: 12px;
     display: grid;

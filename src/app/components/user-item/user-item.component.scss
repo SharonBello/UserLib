@@ -1,21 +1,67 @@
-.user {
-    background: #f4f4f4;
-    margin: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    display: flex;
-}
+@import '../../global-scss/variables.scss';
+@import '../../global-scss/functions.scss';
 
-fa-icon {
-    margin-left: auto;
-}
-
-.user.reminder {
-    border-left: 5px solid green;
-}
-
-.user h3 {
-    display: flex;
-    align-items: center;
+.card {
+    border: 1px solid rgb(226, 226, 226);
+    padding: 10px 12px;
+    min-height: rem(280px);
+    max-height: 100%;
+    min-height: 100%;
+    // aspect-ratio: 1 / 1.6;
+    border-radius: 0.3vmax;
     justify-content: space-between;
+
+
+    & img {
+        object-fit: cover;
+        aspect-ratio: 1 / 0.59;
+        min-height: rem(200px);
+        border-radius: 0.3vmax;
+    }
+
+    & .card-text {
+        text-align: center;
+        // margin: 10px;
+        padding-inline: 5%;
+        // overflow: hidden;
+        gap: 5px;
+        word-break: break-all;
+        // max-height: 60%;
+        // min-height: 60%;
+        overflow: hidden;
+
+        & .user-name {
+            padding: 3% 0;
+            border-bottom: 1px solid rgb(226, 226, 226);
+        }
+
+        & a {
+            font-size: calc(0.6vw + 0.6vh + 0.6vmin);
+            color: $accent3;
+            text-decoration: none;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+                color: $accent2;
+            }
+        }
+
+
+        & .user-location {
+            padding: 1% 0;
+            font-size: calc(0.6vw + 0.6vh + 0.6vmin);
+        }
+
+    }
+    & .edit-icon {
+        height: 15%;
+        cursor: pointer;
+    
+        &.fa-edit {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+    }
 }

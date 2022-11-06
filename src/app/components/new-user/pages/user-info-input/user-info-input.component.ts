@@ -18,12 +18,8 @@ export class UserInfoInputComponent implements OnInit {
 
   
   submitted: boolean = false;
-  selectedTitle!: TitleOptions;
   
-
-  public get TitleOptions(): typeof TitleOptions {
-    return TitleOptions;
-  }
+  
 
   constructor(private router: Router, private NewUserService: NewUserService) {}
 

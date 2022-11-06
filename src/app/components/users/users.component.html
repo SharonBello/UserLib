@@ -1,7 +1,7 @@
-<section class="edit-user">
-    <app-edit-user (onEditUser)="editUser($event)"></app-edit-user>
+<!-- <section class="edit-user"> -->
+    <!-- <app-edit-user (onEditUser)="editUser($event)"></app-edit-user> -->
     <main class="user-list-container container">
-        <app-user-item *ngFor="let user of users" [user]="user" (onEditUser)="editUser">
+        <app-user-item *ngFor="let user of users" [user]="user" (onEditUser)="editUser($event)">
         </app-user-item>
     </main>
-</section>
+<!-- </section> -->

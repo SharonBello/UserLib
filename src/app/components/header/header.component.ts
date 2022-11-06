@@ -10,15 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  title: string = 'The Users Library';
 
   constructor(public dialog: MatDialog, private router: Router) {}
 
   ngOnInit(): void {}
-
-  toggleAddUser() {
-    console.log('toggle');
-  }
 
   openAddUserDialog(): void {
     const dialogRef = this.dialog.open(NewUserComponent, {
