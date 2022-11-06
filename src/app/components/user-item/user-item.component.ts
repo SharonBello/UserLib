@@ -28,19 +28,12 @@ export class UserItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // onEdit(user: User): void {
-  //   this.onEditUser.emit(user);
-  //   this.showEditUser = !this.showEditUser;
-  // }
-
-  editUser(user: User): void {
-    console.log(user);
-    //TODO: send action to save user to store users
+  onEdit(user: User): void {
+    this.showEditUser = !this.showEditUser;
   }
 
   onOpenEditUserDialog(user: User): void {
     this.onEditUser.emit(user);
-    this.showEditUser = !this.showEditUser;
     const dialogRef = this.dialog.open(EditUserComponent, {
       minWidth: '80vw',
       minHeight: '50vh',

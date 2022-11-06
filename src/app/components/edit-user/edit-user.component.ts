@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { update } from '../../store/user.actions';
 import { User } from '../../interfaces/user';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
@@ -12,23 +14,22 @@ export class EditUserComponent implements OnInit {
 
   @Input() user!: User;
   @Output() onEditUser: EventEmitter<User> = new EventEmitter();
-  email?: string = '';
-  firstName: string = '';
-  lastName: string = '';
-  streetName: string = '';
-  streetNumber!: number;
-  city: string = '';
-  state: string = '';
-  country: string = '';
+  email: string;
+  firstName: string;
+  lastName: string;
+  streetName: string;
+  streetNumber: number;
+  city: string;
+  state: string;
+  country: string;
   postcode!: number;
+  name: string;
+  location: string;
 
-  name: string = '';
-  location: string = '';
-
-  constructor(private messageService: MessageService, private router: Router) {}
+  constructor(private messageService: MessageService, private router: Router, private store: Store<{ users: User[] }>) {}
 
   ngOnInit(): void {
-    this.email = this.user.email;
+    this.email = this.user.email || 'test';
     this.firstName = this.user.name.first;
     this.lastName = this.user.name.last;
     this.streetName = this.user.location.street.name;
@@ -54,5 +55,10 @@ export class EditUserComponent implements OnInit {
     editedUser.location.postcode = this.postcode;
 
     this.onEditUser.emit(editedUser);
+    this.store.dispatch(update({user: editedUser}));
+  }
+
+  cancelEdit() {
+    this.router.navigate(['']);
   }
 }
