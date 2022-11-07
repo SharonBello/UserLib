@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { User } from '../interfaces/user';
-import { update, set } from './user.actions';
+import { update, set, deleteUser } from './user.actions';
 
 interface usersState {
     users: User[]
@@ -32,4 +32,13 @@ export const userReducer = createReducer(
         return newState;
     }
   ),
+  on(
+    deleteUser,
+    (state, { user }) => {
+        let newState = {...state};
+        let _users = newState.users.filter(x => x.id.value !== user.id.value);
+        newState.users = _users;
+        return newState;
+    }
+  ),
 );

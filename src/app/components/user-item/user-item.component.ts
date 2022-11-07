@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../interfaces/user';
 import { Store } from '@ngrx/store';
-import { update } from '../../store/user.actions';
+import { update, deleteUser } from '../../store/user.actions';
 import { faEdit, faUserXmark } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -50,15 +50,16 @@ export class UserItemComponent implements OnInit {
 
   onDeleteUser(user: User): void {
     console.log(user);
-    // this.messageService.add({confirmation: 'Are you sure you want to delete this user?', key: 'c', sticky: true});
-    this.messageService.clear();
-    this.messageService.add({
-      key: 'c',
-      sticky: true,
-      severity: 'warn',
-      summary: 'Are you sure?',
-      detail: 'Confirm to proceed',
-    });
+    // // this.messageService.add({confirmation: 'Are you sure you want to delete this user?', key: 'c', sticky: true});
+    // this.messageService.clear();
+    // this.messageService.add({
+    //   key: 'c',
+    //   sticky: true,
+    //   severity: 'warn',
+    //   summary: 'Are you sure?', 
+    //   detail: 'Confirm to proceed',
+    // });
+    this.store.dispatch(deleteUser({user: user}));
   }
 
   onConfirm() {

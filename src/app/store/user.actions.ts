@@ -10,3 +10,9 @@ export const set = createAction(
     '[User] set',
     props<{ users: User[] }>()
 );
+
+export const deleteUser = createAction(
+    '[User] deleteUser',
+    props<{ user: User }>()
+);
+
