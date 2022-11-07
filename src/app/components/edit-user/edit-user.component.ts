@@ -1,17 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { update } from '../../store/user.actions';
 import { User } from '../../interfaces/user';
-import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
   styleUrls: ['./edit-user.component.scss'],
 })
-export class EditUserComponent implements OnInit {
 
+export class EditUserComponent implements OnInit {
   @Input() user!: User;
   @Output() onEditUser: EventEmitter<User> = new EventEmitter();
   @Output() onCancelEdit: EventEmitter<boolean> = new EventEmitter();
@@ -28,7 +25,7 @@ export class EditUserComponent implements OnInit {
   name: string;
   location: string;
 
-  constructor(private messageService: MessageService, private router: Router, private store: Store<{ users: User[] }>) {}
+  constructor(private store: Store<{ users: User[] }>) {}
 
   ngOnInit(): void {
     this.email = this.user.email || 'test';

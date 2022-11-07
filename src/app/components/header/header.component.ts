@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   constructor(public dialog: MatDialog, private router: Router) {}
 
   ngOnInit(): void {}
@@ -20,6 +19,7 @@ export class HeaderComponent implements OnInit {
       minWidth: '80vw',
       minHeight: '50vh',
     });
+
     dialogRef.afterClosed().subscribe((result) => {
       this.router.navigate(['/']);
     });

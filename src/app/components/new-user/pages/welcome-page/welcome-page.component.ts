@@ -1,17 +1,9 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgModel } from '@angular/forms';
 import { User } from '../../../../interfaces/user';
 import { MatDialog } from '@angular/material/dialog';
 import { TitleOptions } from 'src/app/global/enums';
-import {Validators, FormGroup, FormArray, FormBuilder} from '@angular/forms';
+import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { EmailValidatorDirective } from '../../../../directives/email-validator.directive';
 import { Store } from '@ngrx/store';
 
@@ -20,6 +12,7 @@ import { Store } from '@ngrx/store';
   templateUrl: './welcome-page.component.html',
   styleUrls: ['./welcome-page.component.scss'],
 })
+
 export class WelcomePageComponent implements OnInit {
   users: User[] = [];
   selectedTitle!: TitleOptions;
@@ -47,39 +40,41 @@ export class WelcomePageComponent implements OnInit {
     return TitleOptions;
   }
 
-  constructor(public dialog: MatDialog, private router: Router, private _fb: FormBuilder, private store: Store<{ users: User[] }>) {}
+  constructor(
+    public dialog: MatDialog,
+    private router: Router,
+    private _fb: FormBuilder,
+    private store: Store<{ users: User[] }>
+  ) {}
 
   ngOnInit(): void {
     this.newUserForm = this._fb.group({
-      user: this._fb.array([
-        this.initUser(),
-			])
-		});
+      user: this._fb.array([this.initUser()]),
+    });
   }
-  
+
   initUser() {
     return this._fb.group({
       first: ['', [Validators.required, Validators.minLength(3)]],
       last: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, this.emailValidator]],
-			streetName: ['', Validators.required],
-			streetNumber: ['', Validators.required, Validators.pattern('^[0-9]*$')],
-			city: ['', Validators.required],
-			state: ['', Validators.required],
-			country: ['', Validators.required],
-			postcode: ['', Validators.required, Validators.pattern('^[0-9]*$')]
-		});
-	}
+      streetName: ['', Validators.required],
+      streetNumber: ['', Validators.required, Validators.pattern('^[0-9]*$')],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      country: ['', Validators.required],
+      postcode: ['', Validators.required, Validators.pattern('^[0-9]*$')],
+    });
+  }
 
-  onAddNewUser() {  
+  onAddNewUser() {
     const newUser = <FormArray>this.newUserForm.get('user');
     newUser.push(this.initUser());
   }
 
   onSaveNewUser() {
-    this.onAddNewUser()
+    this.onAddNewUser();
     let newUser: User = {} as User;
-    
     newUser.email = this.email;
     newUser.name.first = this.firstName;
     newUser.name.last = this.lastName;

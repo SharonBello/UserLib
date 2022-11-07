@@ -7,7 +7,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { MessageService } from 'primeng/api';
-import { ToastModule } from 'primeng/toast';
 
 @Component({
   providers: [EditUserComponent],
@@ -25,7 +24,7 @@ export class UserItemComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private router: Router,
-    private messageService: MessageService, 
+    private messageService: MessageService,
     private store: Store<{ users: User[] }>
   ) {}
 
@@ -34,32 +33,10 @@ export class UserItemComponent implements OnInit {
   onEdit(user: User): void {
     this.showEditUser = !this.showEditUser;
   }
-  
-
-  // onOpenEditUserDialog(user: User): void {
-  //   this.onEditUser.emit(user); 
-    // const dialogRef = this.dialog.open(EditUserComponent, {
-    //   minWidth: '80vw',
-    //   minHeight: '50vh',
-    // });
-    // dialogRef.afterClosed().subscribe((result) => {
-      // dialogRef.close(EditUserComponent
-      // this.router.navigate(['/']);
-    // );
-  // }
 
   onDeleteUser(user: User): void {
-    console.log(user);
-    // // this.messageService.add({confirmation: 'Are you sure you want to delete this user?', key: 'c', sticky: true});
-    // this.messageService.clear();
-    // this.messageService.add({
-    //   key: 'c',
-    //   sticky: true,
-    //   severity: 'warn',
-    //   summary: 'Are you sure?', 
-    //   detail: 'Confirm to proceed',
-    // });
-    this.store.dispatch(deleteUser({user: user}));
+    // this.messageService.add({key: 'c', sticky: true, severity:'warn', summary:'Are you sure?', detail:'Confirm to proceed'});
+    this.store.dispatch(deleteUser({ user: user }));
   }
 
   onConfirm() {
@@ -70,13 +47,13 @@ export class UserItemComponent implements OnInit {
     this.messageService.clear('c');
   }
 
-  cancelEdit(isEdit:boolean): void {
+  cancelEdit(isEdit: boolean): void {
     this.showEditUser = false;
   }
 
   editUser(user: User): void {
     console.log(user);
     //send action save user
-    this.store.dispatch(update({user: user}));
-  }
+    this.store.dispatch(update({ user: user }));
+  }
 }

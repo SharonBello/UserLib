@@ -1,4 +1,4 @@
-import { TitleOptions } from "../global/enums";
+import { TitleOptions } from '../global/enums';
 
 export interface User {
   gender?: string;

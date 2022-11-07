@@ -1,33 +1,4 @@
-<!-- <form appInfoPage="ngForm" class="edit-form" (ngSubmit)="onNextPage()">
-    <div class="field email">
-        <label for="email">Email</label>
-        <input type="email" id="email" required appEmailValidator/>
-    </div>
-  
-    <div class="field first-name">
-        <label for="first">First Name</label>
-        <input type="text" id="first" pInputText require #first="ngModel" ngModel="newUser.name.first"
-        />
-    </div>
-
-    <div class="field last-name">
-        <label for="last">Last Name</label>
-        <input type="text" id="last" pInputText require #last="ngModel" ngModel="newUser.name.last"
-        />
-    </div>
-
-    <div class="field title">
-        <label for="title">Title</label>
-        <input type="text" id="title" pInputText require #title="ngModel" ngModel="newUser.title"
-        />
-    </div>
-
-    <button type="submit" (click)="onNextPage()" class="next-btn" label="Next">Next
-    </button>
-</form> -->
-
-<form class="new-form">
-
+<form class="new-form" [formGroup]="newUserForm">
     <div class="form-control">
         <article class="edit-email">
             <label for="email">Email</label>
@@ -38,7 +9,7 @@
             <label for="firstName">First Name</label>
             <input type="text" name="firstName" id="firstName" [(ngModel)]="firstName" placeholder="User First Name" />
         </article>
-      
+
         <article class="last-name">
             <label for="lastName">Last Name</label>
             <input type="text" name="lastName" id="lastName" [(ngModel)]="lastName" placeholder="User last Name" />
@@ -51,7 +22,8 @@
 
         <article class="street-number">
             <label for="streetNumber">Street Number</label>
-            <input type="number" name="streetNumber" id="streetNumber" [(ngModel)]="lastName" placeholder="Street Number" />
+            <input type="number" name="streetNumber" id="streetNumber" [(ngModel)]="lastName"
+                placeholder="Street Number" />
         </article>
 
         <article class="city">
@@ -79,4 +51,3 @@
     <button (click)="onCancelNewUser()">Cancel</button>
 
 </form>
-

@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-html {
-    // font-size: calc(15px + 0.390625vw);
-    // font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
-}
-
 html,
 body {
     max-height: 100vh;
@@ -19,16 +14,13 @@ body,
     height: 100vh;
     width: 100%;
     margin: 0;
-    // font-size: calc(1vw + 1vh + 1.5vmin);
     font-size: calc(15px + 0.390625vw);
-    // font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
     font-family: assistant, "Helvetica Neue", sans-serif;
     line-height: 1.25;
     background-color: $accent4;
     color: $accent2;
 
     @media (min-width: 600px) {
-        // font-size: calc(1vw + 1vh + 1vmin);
         line-height: 1.5;
     }
 }
@@ -45,11 +37,6 @@ h6 {
 p {
     margin: unset;
 }
-
-// a {
-//     text-decoration: none;
-//     color: unset;
-// }
 
 img {
     width: 100%;

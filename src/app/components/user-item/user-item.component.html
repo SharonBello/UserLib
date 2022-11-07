@@ -10,17 +10,11 @@
     </section>
     <footer class="edit-icon">
         <fa-icon [icon]="faEdit" (click)="onEdit(user)"></fa-icon>
-        <!-- <fa-icon [icon]="faEdit" (click)="onOpenEditUserDialog(user)"></fa-icon> -->
         <div *ngIf="showEditUser">
-            <!-- <app-edit-user [user]="user" (onEditUser)="onOpenEditUserDialog($event)"></app-edit-user> -->
-            <app-edit-user [user]="user" (onEditUser)="editUser($event)" (onCancelEdit)="cancelEdit($event)"></app-edit-user>
+            <app-edit-user [user]="user" (onEditUser)="editUser($event)" (onCancelEdit)="cancelEdit($event)">
+            </app-edit-user>
         </div>
-        <!-- <button class="delete-user-btn" (click)="onDeleteUser(user)"> -->
-            <!-- <button type="button" pButton pRipple (click)="onDeleteUser(user)" class="ui-button-warning"> -->
-                <fa-icon [icon]="faDelete" (click)="onDeleteUser(user)"></fa-icon>
-
-            
-        <!-- </button> -->
+        <fa-icon [icon]="faDelete" (click)="onDeleteUser(user)"></fa-icon>
 
         <p-toast class="delete-toast" position="bottom-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
             <ng-template let-message pTemplate="message">
@@ -32,10 +26,12 @@
                     </div>
                     <div class="grid p-fluid">
                         <div class="col-6">
-                            <button type="button" pButton (click)="onConfirm()" label="Yes" class="p-button-success"></button>
+                            <button type="button" pButton (click)="onConfirm()" label="Yes"
+                                class="p-button-success"></button>
                         </div>
                         <div class="col-6">
-                            <button type="button" pButton (click)="onReject()" label="No" class="p-button-secondary"></button>
+                            <button type="button" pButton (click)="onReject()" label="No"
+                                class="p-button-secondary"></button>
                         </div>
                     </div>
                 </div>

@@ -15,31 +15,29 @@ export const userReducer = createReducer(
     const index = newState.users.findIndex((x) => x.id.value === user.id.value);
     let users = [...newState.users];
     users[index] = user;
-    newState.users = users;
-    console.log('user from reducer', user);
-    console.log('new state', newState);
+    newState.users = users;  
     return newState;
   }),
+
   on(set, (state, { users }) => {
     let newState = { ...state };
     newState.users = users;
-    console.log('newState', newState);
     return newState;
   }),
+
   on(deleteUser, (state, { user }) => {
     let newState = { ...state };
     let _users = newState.users.filter((x) => x.id.value !== user.id.value);
     newState.users = _users;
     return newState;
   }),
+
   on(addNewUser, (state, { user }) => {
     let newState = { ...state };
     let newUser = newState.users.push(user);
     let users = [...newState.users];
     users[newUser] = user;
     newState.users = users;
-    console.log('newUser from reducer', user);
-    console.log('new state', newState);
     return newState;
   })
 );
