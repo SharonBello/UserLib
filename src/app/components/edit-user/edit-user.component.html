@@ -1,3 +1,8 @@
+<!-- <input name="email" ngDefaultControl [(ngModel)]="email" />
+<button (click)="onSubmit()">Save User</button>
+<button (click)="onCancel()">Cancel</button> -->
+
+
 <form class="edit-form" (ngSubmit)="onSubmit()">
 
     <div class="form-control">
@@ -49,6 +54,6 @@
     </div>
 
     <button type="submit" class="btn btn-block">Update User</button>
-    <button type="button" class="btn btn-block" (click)="cancelEdit()">Cancel</button>
+    <button (click)="onCancel()">Cancel</button>
 
 </form>

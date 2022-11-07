@@ -10,8 +10,10 @@
     </section>
     <footer class="edit-icon">
         <fa-icon [icon]="faEdit" (click)="onEdit(user)"></fa-icon>
+        <!-- <fa-icon [icon]="faEdit" (click)="onOpenEditUserDialog(user)"></fa-icon> -->
         <div *ngIf="showEditUser">
-            <app-edit-user [user]="user" (onEditUser)="onOpenEditUserDialog($event)"></app-edit-user>
+            <!-- <app-edit-user [user]="user" (onEditUser)="onOpenEditUserDialog($event)"></app-edit-user> -->
+            <app-edit-user [user]="user" (onEditUser)="editUser($event)" (onCancelEdit)="cancelEdit($event)"></app-edit-user>
         </div>
         <!-- <button class="delete-user-btn" (click)="onDeleteUser(user)"> -->
             <!-- <button type="button" pButton pRipple (click)="onDeleteUser(user)" class="ui-button-warning"> -->

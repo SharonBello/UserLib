@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../interfaces/user';
+import { Store } from '@ngrx/store';
+import { update } from '../../store/user.actions';
 import { faEdit, faUserXmark } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -23,7 +25,8 @@ export class UserItemComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService, 
+    private store: Store<{ users: User[] }>
   ) {}
 
   ngOnInit(): void {}
@@ -31,17 +34,19 @@ export class UserItemComponent implements OnInit {
   onEdit(user: User): void {
     this.showEditUser = !this.showEditUser;
   }
+  
 
-  onOpenEditUserDialog(user: User): void {
-    this.onEditUser.emit(user);
-    const dialogRef = this.dialog.open(EditUserComponent, {
-      minWidth: '80vw',
-      minHeight: '50vh',
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      this.router.navigate(['/']);
-    });
-  }
+  // onOpenEditUserDialog(user: User): void {
+  //   this.onEditUser.emit(user); 
+    // const dialogRef = this.dialog.open(EditUserComponent, {
+    //   minWidth: '80vw',
+    //   minHeight: '50vh',
+    // });
+    // dialogRef.afterClosed().subscribe((result) => {
+      // dialogRef.close(EditUserComponent
+      // this.router.navigate(['/']);
+    // );
+  // }
 
   onDeleteUser(user: User): void {
     console.log(user);
@@ -63,4 +68,14 @@ export class UserItemComponent implements OnInit {
   onReject() {
     this.messageService.clear('c');
   }
+
+  cancelEdit(isEdit:boolean): void {
+    this.showEditUser = false;
+  }
+
+  editUser(user: User): void {
+    console.log(user);
+    //send action save user
+    this.store.dispatch(update({user: user}));
+  }
 }

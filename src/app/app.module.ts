@@ -69,7 +69,7 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     MatDialogModule,
     InputTextareaModule,
     RouterModule,
-    StoreModule.forRoot({ count: userReducer })
+    StoreModule.forRoot({ data: userReducer })
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

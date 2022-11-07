@@ -14,6 +14,8 @@ export class EditUserComponent implements OnInit {
 
   @Input() user!: User;
   @Output() onEditUser: EventEmitter<User> = new EventEmitter();
+  @Output() onCancelEdit: EventEmitter<boolean> = new EventEmitter();
+  
   email: string;
   firstName: string;
   lastName: string;
@@ -41,9 +43,7 @@ export class EditUserComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.email);
-
-    const editedUser = this.user;
+    let editedUser = JSON.parse(JSON.stringify(this.user));
     editedUser.email = this.email;
     editedUser.name.first = this.firstName;
     editedUser.name.last = this.lastName;
@@ -53,12 +53,11 @@ export class EditUserComponent implements OnInit {
     editedUser.location.state = this.state;
     editedUser.location.country = this.country;
     editedUser.location.postcode = this.postcode;
-
     this.onEditUser.emit(editedUser);
-    this.store.dispatch(update({user: editedUser}));
+    this.onCancelEdit.emit(true);
   }
 
-  cancelEdit() {
-    this.router.navigate(['']);
+  onCancel() {
+    this.onCancelEdit.emit(true);
   }
 }

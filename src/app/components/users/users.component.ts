@@ -13,13 +13,12 @@ import { UserService } from '../../services/user.service';
 export class UsersComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private userService: UserService, private store: Store<{ users: User[] }>) {}
+  constructor(private userService: UserService, private store: Store<{ data: {users: User[]} }>) {}
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe((users) => {
-      console.log(users);
-      this.users = users.results;
-      this.store.dispatch(set({users: this.users}));
+    this.store.subscribe((state) => {
+      console.log("state " , state);
+      this.users = state.data.users;
     });
   }
 
