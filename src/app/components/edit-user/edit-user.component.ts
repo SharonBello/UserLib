@@ -17,8 +17,8 @@ export class EditUserComponent implements OnInit {
   @Output() onCancelEdit: EventEmitter<boolean> = new EventEmitter();
   
   email: string;
-  firstName: string;
-  lastName: string;
+  firstName?: string;
+  lastName?: string;
   streetName: string;
   streetNumber: number;
   city: string;

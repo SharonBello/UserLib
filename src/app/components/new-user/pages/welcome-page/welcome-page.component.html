@@ -1,4 +1,4 @@
-<form appInfoPage="ngForm" class="edit-form" (ngSubmit)="onNextPage()">
+<!-- <form appInfoPage="ngForm" class="edit-form" (ngSubmit)="onNextPage()">
     <div class="field email">
         <label for="email">Email</label>
         <input type="email" id="email" required appEmailValidator/>
@@ -23,6 +23,60 @@
     </div>
 
     <button type="submit" (click)="onNextPage()" class="next-btn" label="Next">Next
-    <!-- <button type="submit" (click)="onNextPage()" class="next-btn" disabled="!appInfoPage.form.valid" label="Next">Next -->
     </button>
+</form> -->
+
+<form class="new-form">
+
+    <div class="form-control">
+        <article class="edit-email">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" [(ngModel)]="email" placeholder="User Email" />
+        </article>
+
+        <article class="first-name">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" [(ngModel)]="firstName" placeholder="User First Name" />
+        </article>
+      
+        <article class="last-name">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" [(ngModel)]="lastName" placeholder="User last Name" />
+        </article>
+
+        <article class="street-name">
+            <label for="streetName">Street Name</label>
+            <input type="text" name="streetName" id="streetName" [(ngModel)]="lastName" placeholder="Street Name" />
+        </article>
+
+        <article class="street-number">
+            <label for="streetNumber">Street Number</label>
+            <input type="number" name="streetNumber" id="streetNumber" [(ngModel)]="lastName" placeholder="Street Number" />
+        </article>
+
+        <article class="city">
+            <label for="city">City</label>
+            <input type="text" name="city" id="city" [(ngModel)]="city" placeholder="city" />
+        </article>
+
+        <article class="state">
+            <label for="state">State</label>
+            <input type="text" name="state" id="state" [(ngModel)]="state" placeholder="state" />
+        </article>
+
+        <article class="country">
+            <label for="country">country</label>
+            <input type="text" name="country" id="country" [(ngModel)]="country" placeholder="country" />
+        </article>
+
+        <article class="postcode">
+            <label for="postcode">postcode</label>
+            <input type="number" name="postcode" id="postcode" [(ngModel)]="postcode" placeholder="postcode" />
+        </article>
+
+    </div>
+    <button (click)="onSaveNewUser()">Add User</button>
+    <button (click)="onCancelNewUser()">Cancel</button>
+
 </form>
+

@@ -26,14 +26,7 @@ export class NewUserComponent implements OnInit {
       routerLink: '/new-user/welcome-page'
     },
     {
-      label: 'Location',
-      command: (event: any) => {
-        this.activeIndex = 1;
-      },
-      routerLink: '/new-user/user-info-input'
-    },
-    {
-      label: 'Upload Picture',
+      label: 'Confirm',
       command: (event: any) => {
         this.activeIndex = 2;
       },

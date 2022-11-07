@@ -10,16 +10,14 @@ import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { StepsModule } from 'primeng/steps';
 import { ToastModule } from 'primeng/toast';
-import { FormsModule } from '@angular/forms';
-import { MessageService, SharedModule } from 'primeng/api';
-import { CardModule } from 'primeng/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { DialogModule } from 'primeng/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
-import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -58,8 +56,7 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     StepsModule,
     ToastModule,
     FormsModule,
-    SharedModule,
-    CardModule,
+    ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
     SelectButtonModule,
@@ -67,7 +64,6 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     RadioButtonModule,
     DialogModule,
     MatDialogModule,
-    InputTextareaModule,
     RouterModule,
     StoreModule.forRoot({ data: userReducer })
   ],

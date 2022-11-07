@@ -9,8 +9,11 @@ import {
 import { Router } from '@angular/router';
 import { NgModel } from '@angular/forms';
 import { User } from '../../../../interfaces/user';
-
+import { MatDialog } from '@angular/material/dialog';
 import { TitleOptions } from 'src/app/global/enums';
+import {Validators, FormGroup, FormArray, FormBuilder} from '@angular/forms';
+import { EmailValidatorDirective } from '../../../../directives/email-validator.directive';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-welcome-page',
@@ -18,41 +21,86 @@ import { TitleOptions } from 'src/app/global/enums';
   styleUrls: ['./welcome-page.component.scss'],
 })
 export class WelcomePageComponent implements OnInit {
+  users: User[] = [];
   selectedTitle!: TitleOptions;
   submitted: boolean = false;
+  public newUserForm: FormGroup;
+  emailValidator = new EmailValidatorDirective();
 
   @Input() user!: User;
-  @Output() onEditUser: EventEmitter<User> = new EventEmitter();
+  @Output() addNewUser: EventEmitter<User> = new EventEmitter();
 
-  name: string = '';
-
-  title?: string = '';
+  title: string = '';
+  email: string = '';
   firstName: string = '';
   lastName: string = '';
-  email?: string = '';
+  streetName: string = '';
+  streetNumber: number = 0;
+  city: string = '';
+  state: string = '';
+  country: string = '';
+  postcode: number = 0;
+  name: string = '';
+  location: string = '';
 
   public get TitleOptions(): typeof TitleOptions {
     return TitleOptions;
   }
 
-  constructor(private router: Router) { }
+  constructor(public dialog: MatDialog, private router: Router, private _fb: FormBuilder, private store: Store<{ users: User[] }>) {}
 
   ngOnInit(): void {
-    this.title = this.user.name.title;
-    this.firstName = this.user.name.first;
-    this.lastName = this.user.name.last;
-    this.email = this.user.email;
+    this.newUserForm = this._fb.group({
+      user: this._fb.array([
+        this.initUser(),
+			])
+		});
+  }
+  
+  initUser() {
+    return this._fb.group({
+      first: ['', [Validators.required, Validators.minLength(3)]],
+      last: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, this.emailValidator]],
+			streetName: ['', Validators.required],
+			streetNumber: ['', Validators.required, Validators.pattern('^[0-9]*$')],
+			city: ['', Validators.required],
+			state: ['', Validators.required],
+			country: ['', Validators.required],
+			postcode: ['', Validators.required, Validators.pattern('^[0-9]*$')]
+		});
+	}
+
+  onAddNewUser() {  
+    const newUser = <FormArray>this.newUserForm.get('user');
+    newUser.push(this.initUser());
+  }
+
+  onSaveNewUser() {
+    this.onAddNewUser()
+    let newUser: User = {} as User;
+    
+    newUser.email = this.email;
+    newUser.name.first = this.firstName;
+    newUser.name.last = this.lastName;
+    newUser.location.street.name = this.streetName;
+    newUser.location.street.number = this.streetNumber;
+    newUser.location.city = this.city;
+    newUser.location.state = this.state;
+    newUser.location.country = this.country;
+    newUser.location.postcode = this.postcode;
+    this.addNewUser.emit(newUser);
+    return this.users.push(newUser);
   }
 
   onNextPage() {
     this.submitted = true;
+    this.router.navigate(['/new-user/confirm-new-user']);
+  }
 
-    const newUser = this.user;
-    // newUser.name.title = this.user.name.title;
-    // newUser.name.first = this.user.name.firstName;
-    // newUser.name.last = this.user.name.last;
-    // newUser.email = this.user.email;
-
-    this.router.navigate(['/new-user/user-info-input']);
+  onCancelNewUser() {
+    const dialogRef = this.dialog;
+    dialogRef.closeAll();
+    this.router.navigate(['/']);
   }
 }
