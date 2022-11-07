@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build --configuration production",
+    "build": "ng build --configuration production && npm run aws-deploy",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "aws-deploy": "aws s3 sync dist/userlib/ s3://user-lib/dist/"
   },
   "private": true,
   "dependencies": {
