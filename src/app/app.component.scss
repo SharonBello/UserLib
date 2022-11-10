@@ -17,11 +17,15 @@ body,
     font-size: calc(15px + 0.390625vw);
     font-family: assistant, "Helvetica Neue", sans-serif;
     line-height: 1.25;
-    background-color: $accent4;
+    background-color: $font;
     color: $accent2;
 
     @media (min-width: 600px) {
         line-height: 1.5;
+    }
+
+    & .main-components{
+        min-width: 100%;
     }
 }
 

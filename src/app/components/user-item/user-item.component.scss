@@ -31,9 +31,9 @@
 
         & a {
             font-size: calc(0.6vw + 0.6vh + 0.6vmin);
-            color: $accent3;
+            color: $header;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
 
             &:hover {
                 text-decoration: underline;
@@ -65,7 +65,7 @@
         min-height: 25%;
         position: absolute;
         bottom: 0;
-        background-color: $accent3;
+        background-color: $accent6;
         color: $accent2;
         border-radius: 0.3vmax;
 

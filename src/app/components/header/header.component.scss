@@ -1,7 +1,9 @@
 @import '../../global-scss/variables.scss';
+@import '../../global-scss/functions.scss';
 
 header {
-    background-color: $accent2;
+    // background-color: $header;
+    background-color: transparent;
     position: fixed;
     top: 0;
     z-index: 50;
@@ -10,15 +12,16 @@ header {
     margin: 0;
     max-width: 100%;
     padding-block: calc(0.4vw + 0.4vh + 0.6vmin);
+    padding-block-start: 2%;
 
     & .logo {
-        max-width: 5em;
+        max-width: 8em;
     }
 
     & .add-new-user-btn {
         margin-left: auto;
         padding-inline: 2%;
-        height: 45px;
+        height: rem(50px);
         border: 0px solid;
         background-image: linear-gradient(45deg, $accent3, $accent4, $accent3);
         background-size: 500% 400%;

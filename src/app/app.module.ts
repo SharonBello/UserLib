@@ -20,6 +20,8 @@ import { DialogModule } from 'primeng/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgParticlesModule } from "ng-particles";
+import { tsParticles } from "tsparticles-engine";
 
 import { HeaderComponent } from './components/header/header.component';
 import { UsersComponent } from './components/users/users.component';
@@ -29,6 +31,8 @@ import { WelcomePageComponent } from './components/new-user/pages/welcome-page/w
 import { ConfirmNewUserComponent } from '../app/components/new-user/pages/confirm-new-user/confirm-new-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { EmailValidatorDirective } from './directives/email-validator.directive';
+import { AppFooterComponent } from './components/app-footer/app-footer.component';
+import { HomepageHeroComponent } from './components/homepage-hero/homepage-hero.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,9 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     WelcomePageComponent,
     ConfirmNewUserComponent,
     EditUserComponent,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    AppFooterComponent,
+    HomepageHeroComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +67,7 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     DialogModule,
     MatDialogModule,
     RouterModule,
+    NgParticlesModule,
     StoreModule.forRoot({ data: userReducer })
   ],
   providers: [MessageService],
