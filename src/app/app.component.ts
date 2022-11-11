@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe((users) => {
-      console.log(users);
       this.users = users.results;
       this.store.dispatch(set({ users: this.users }));
     });

@@ -32,7 +32,6 @@ export class HeaderComponent implements OnInit {
 
   scrolling = (s: any) => {
     let sc = s.target.scrollingElement.scrollTop;
-    console.log('sc', sc);
     if (sc >= 550 || this.onWindowResize <= 440) {
       this.scroll = true;
     } else {

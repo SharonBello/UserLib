@@ -52,7 +52,6 @@ export class UserItemComponent implements OnInit {
   }
 
   editUser(user: User): void {
-    console.log(user);
     //send action save user
     this.store.dispatch(update({ user: user }));
   }
