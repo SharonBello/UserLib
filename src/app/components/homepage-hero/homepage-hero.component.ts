@@ -24,9 +24,7 @@ export class HomepageHeroComponent {
     },
     background: {
       image:
-        // "url('https://res.cloudinary.com/primap/image/upload/v1665578848/General/background3_vuxsmv.jpg')",
         "url('https://res.cloudinary.com/primap/image/upload/v1668107960/General/Appsforce%20Assignment/albert-bleeker-slpTDuenYeM-unsplash_p4vbxp.jpg')",
-        // "url('https://res.cloudinary.com/primap/image/upload/v1668108279/General/Appsforce%20Assignment/sascha-eremin-DNQ-M93tHmA-unsplash_bn9egy.jpg')",
     },
     fpsLimit: 30,
     interactivity: {
