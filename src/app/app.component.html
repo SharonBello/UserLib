@@ -1,4 +1,4 @@
-<div class="app-container" (scroll)="scrollEvent($event)">
+<div class="app-container" (scroll)="scrollEvent($event)" (onWindowResize)="onWindowResize($event)">
   <app-header></app-header>
   <main class="main-components">
     <app-homepage-hero></app-homepage-hero>

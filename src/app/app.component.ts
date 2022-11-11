@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { User } from './interfaces/user';
 import { UserService } from './services/user.service';
 import { Store } from '@ngrx/store';
@@ -11,7 +11,8 @@ import { set } from './store/user.actions';
 })
 export class AppComponent implements OnInit {
   users: User[] = [];
-  
+  public getScreenWidth: any;
+
   constructor(
     private userService: UserService,
     private store: Store<{ users: User[] }>
@@ -23,10 +24,19 @@ export class AppComponent implements OnInit {
       this.users = users.results;
       this.store.dispatch(set({ users: this.users }));
     });
-    window.addEventListener('scroll', this.scrollEvent, true); 
+    window.addEventListener('scroll', this.scrollEvent, true);
+
+    this.getScreenWidth = window.innerWidth;
   }
 
   scrollEvent = (event: any): void => {
     const n = event.srcElement.scrollingElement.scrollTop;
+  };
+
+  @HostListener('window:resize', ['$event'])
+
+  onWindowResize(e: Event): void {
+    this.getScreenWidth = window.innerWidth;
   }
+
 }

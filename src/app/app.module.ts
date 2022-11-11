@@ -17,11 +17,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { DialogModule } from 'primeng/dialog';
+
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgParticlesModule } from "ng-particles";
-import { tsParticles } from "tsparticles-engine";
 
 import { HeaderComponent } from './components/header/header.component';
 import { UsersComponent } from './components/users/users.component';

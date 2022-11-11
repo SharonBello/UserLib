@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   scroll: boolean = false;
+  onWindowResize: number = window.innerWidth;
 
   constructor(public dialog: MatDialog, private router: Router) {}
 
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit {
   scrolling = (s: any) => {
     let sc = s.target.scrollingElement.scrollTop;
     console.log('sc', sc);
-    if (sc >= 550) {
+    if (sc >= 550 || this.onWindowResize <= 440) {
       this.scroll = true;
     } else {
       this.scroll = false;
