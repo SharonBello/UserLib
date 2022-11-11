@@ -10,9 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  scroll: boolean = false;
+
   constructor(public dialog: MatDialog, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.addEventListener('scroll', this.scrolling, true);
+  }
 
   openAddUserDialog(): void {
     const dialogRef = this.dialog.open(NewUserComponent, {
@@ -24,4 +28,14 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/']);
     });
   }
+
+  scrolling = (s: any) => {
+    let sc = s.target.scrollingElement.scrollTop;
+    console.log('sc', sc);
+    if (sc >= 550) {
+      this.scroll = true;
+    } else {
+      this.scroll = false;
+    }
+  };
 }

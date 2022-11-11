@@ -1,7 +1,10 @@
-<header class="header flex container align-center">
-    <img alt="logo" class="logo"
+<header class="header">
+    <div class="{{scroll ? 'solid flex container align-center' : 'transparent flex container align-center'}}">
+
+        <img alt="logo" class="logo"
         src="https://res.cloudinary.com/primap/image/upload/v1667721991/General/Appsforce%20Assignment/userly_logo_h3ilxw.png" />
-    <button class="add-new-user-btn" (click)="openAddUserDialog()">
-        Add New User
-    </button>
+        <button class="add-new-user-btn" (click)="openAddUserDialog()">
+            Add New User
+        </button>
+    </div>
 </header>

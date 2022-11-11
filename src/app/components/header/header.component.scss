@@ -11,10 +11,26 @@ header {
     flex: 1;
     margin: 0;
     max-width: 100%;
-    padding-block: calc(0.4vw + 0.4vh + 0.6vmin);
-    padding-block-start: 2%;
-
+    // padding-block: calc(0.4vw + 0.4vh + 0.6vmin);
+    // padding-block-start: 2%;
+    
+    & .solid,
+    & .transparent {
+        margin: 0 !important;
+        padding-block: 0 !important;
+        flex: 1;
+        -webkit-animation: fade-in 0.1s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
+        animation: fade-in 0.1s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
+    }
+    
+    & .solid {
+        background: $header2;
+        border-bottom: 1px solid rgb(226, 226, 226);
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+    }
+    
     & .logo {
+        padding-block: calc(0.4vw + 0.4vh + 0.6vmin);
         max-width: 8em;
     }
 
@@ -42,5 +58,18 @@ header {
             transform: scale(0.95);
             transition: 0.1s;
         }
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

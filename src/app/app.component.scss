@@ -19,6 +19,7 @@ body,
     line-height: 1.25;
     background-color: $font;
     color: $accent2;
+    scroll-behavior: smooth;
 
     @media (min-width: 600px) {
         line-height: 1.5;

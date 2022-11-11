@@ -23,5 +23,10 @@ export class AppComponent implements OnInit {
       this.users = users.results;
       this.store.dispatch(set({ users: this.users }));
     });
+    window.addEventListener('scroll', this.scrollEvent, true); 
+  }
+
+  scrollEvent = (event: any): void => {
+    const n = event.srcElement.scrollingElement.scrollTop;
   }
 }
