@@ -1,0 +1,71 @@
+@import '../../global-scss/variables.scss';
+@import '../../global-scss/functions.scss';
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-sections {
+    color: #eee;
+    color: #bbb;
+    line-height: 1.5;
+
+    .middle-footer {
+        // .social-icons {
+        //     margin-top: auto;
+        //     min-height: 20vh;
+        //     min-width: 100%;
+        //     background-image: linear-gradient(to bottom,
+        //             $footer 0,
+        //             $footer 20%,
+        //             $header2 20%,
+        //             $header2 100%);
+
+        & ul {
+            display: flex;
+            justify-content: center;
+            border-top: 1px #777 solid;
+            padding-top: 1.25rem;
+
+            & li {
+                cursor: pointer;
+                margin: 0.5rem;
+                font-size: 1.25rem;
+
+                & a {
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    & .bottom-footer {
+        padding: 0.9375rem 1.875rem;
+        background-color: #333;
+
+        .legal-list {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            & li {
+                margin: 0.125rem 0.625rem;
+                white-space: nowrap;
+
+                &:nth-last-child(2) {
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
