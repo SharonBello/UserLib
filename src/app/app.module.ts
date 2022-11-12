@@ -17,6 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { DialogModule } from 'primeng/dialog';
+import { ScrollTopModule} from 'primeng/scrolltop';
 
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -68,6 +69,7 @@ import { HomepageHeroComponent } from './components/homepage-hero/homepage-hero.
     MatDialogModule,
     RouterModule,
     NgParticlesModule,
+    ScrollTopModule,
     StoreModule.forRoot({ data: userReducer })
   ],
   providers: [MessageService],

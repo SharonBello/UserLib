@@ -1,4 +1,5 @@
 <div class="app-container" (scroll)="scrollEvent($event)" (onWindowResize)="onWindowResize($event)">
+  <p-scrollTop></p-scrollTop>
   <app-header></app-header>
   <main class="main-components">
     <app-homepage-hero></app-homepage-hero>
@@ -6,4 +7,5 @@
   </main>
   <app-footer></app-footer>
 </div>
+<p-scrollTop styleClass="custom-scrolltop" [threshold]="10" icon="pi pi-arrow-up"></p-scrollTop>
 <router-outlet></router-outlet>
